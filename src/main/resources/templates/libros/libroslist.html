@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div th:fragment="libroslist">
+
+
+		<table>
+
+			<tr>
+				
+				<th>Título</th>
+				<th>Autor</th>
+				<th>Editorial</th>
+				<th>Asignatura</th>
+				<th>Estado</th>
+				
+				<th>Modificar</th>
+				<th>Eliminar</th>
+
+			</tr>
+
+			<tr th:each="libro : ${libros}">
+				
+				<td th:text="${libro.titulo}"></td>
+				<td th:text="${libro.autor}"></td>
+				<td th:text="${libro.editorial}"></td>
+				<td th:text="${libro.asignatura}"></td>
+				<td th:text="${libro.estado}"></td>
+				<td><a  th:href="@{/modifylibroform(codigoLi=${libro.codigo})}">X</a> </td>
+				<td><a  th:href="@{/deletelibro(codigoLi=${libro.codigo})}">X</a> </td>
+
+			</tr>
+
+		</table>
+
+
+
+	</div>
+
+</body>
+</html>

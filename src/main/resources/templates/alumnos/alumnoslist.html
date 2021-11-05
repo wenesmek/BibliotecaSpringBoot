@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div th:fragment="alumnoslist">
+
+		<table>
+
+			<tr>
+				<th>Registro</th>
+				<th>DNI</th>
+				<th>Nombre</th>
+				<th>Primer Apellido</th>
+				<th>Segundo Apellido</th>
+				<th>Modificar</th>
+				<th>Eliminar</th>
+
+
+			</tr>
+
+			<tr th:each="alumno : ${alumnos}">
+				<td th:text="${alumno.registro}">Codigo</td>
+				<td th:text="${alumno.dni}">Codigo</td>
+				<td th:text="${alumno.nombre}">Codigo</td>
+				<td th:text="${alumno.apellido1}">Codigo</td>
+				<td th:text="${alumno.apellido2}">Codigo</td>
+				<td><a  th:href="@{/modifyalumnoform(codigoAl=${alumno.registro})}">X</a> </td>
+				<td><a  th:href="@{/deletealumno(codigoAl=${alumno.registro})}">X</a> </td>
+
+
+			</tr>
+
+		</table>
+
+
+	</div>
+
+
+
+</body>
+</html>

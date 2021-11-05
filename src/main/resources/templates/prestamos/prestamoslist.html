@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+
+
+	<table>
+
+		<tr>
+			<th>Codigo</th>
+			<th>Cod Alumno</th>
+			<th>Cod Libro</th>
+			<th>Fecha Préstamo</th>
+			<th>Fecha Devolución</th>
+			<th>Estado</th>
+			<th>Eliminar</th>
+
+		</tr>
+		
+		<tr th:each="prestamo : ${prestamos}">
+			<td th:text="${prestamo.id}"></td>
+			<td th:text="${prestamo.alumno.registro}"></td>
+			<td th:text="${prestamo.libro.codigo}"></td>
+			<td th:text="${#dates.format(prestamo.fechaPrestamo, 'dd/MM/yyyy')}"></td>
+			<td th:text="${#dates.format(prestamo.fechaDevolucion, 'dd/MM/yyyy')}"></td>
+			<td th:text="${prestamo.estado}"></td>
+			<td><a  th:href="@{/deleteprestamo(codigoP=${prestamo.id})}">X</a> </td>
+
+		</tr>
+
+	</table>
+
+
+
+	
+
+</body>
+</html>
